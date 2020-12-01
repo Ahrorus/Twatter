@@ -2,7 +2,7 @@
 
 > Twatter is a clone of Twitter, minimalistic and simpler version of it. This web application was developed using Laravel, popular PHP based framework for building backend web applications. It was entirely made by me as part of my academic project for the Software Engineering I course, in fall 2020, San Jose State University.
 
-In this web application, users can create new accounts or sign in to their existing accounts, manage personal profile, set avater, post tweets, view friends' tweets, explore other users, view and follow other users, like tweets. Below are the screen recording of the application:
+In this web application, users can create new accounts or sign in to their existing accounts, manage personal profile, set avater, post tweets, view friends' tweets, explore other users, view and follow other users, like/dislike tweets. Below are the screen recording of the application:
 
 ## Website Screen Recordings
 
@@ -19,18 +19,20 @@ Architecture of the software is based on Laravel, PHP-based framework for creati
 
 Here is the top-level system design:
 
-<img src="UML.png">
+<img src="UML_Diagram.png">
 
 
 ## Data Modeling
 
-Model User describes a user who created his account through authentication. It contains id of the user, name, email, and password. In addition, user have his own many tweets and followings (other users whom the user follows). User can follow another user, return his tweets, return his timeline (tweets of the user and of his followings), and return his followings (users whom he follows).
+Model User describes a user who created his account through authentication. It contains id of the user, name, email, password, bio, and avatar (profile picture). In addition, user has his own many tweets and followings (other users whom the user follows). User can follow another user, return his tweets, return his timeline (tweets of the user and of his followings), return his followings (users whom he follows), and like/dislike Tweets. User implements Followable trait.
 
-Model Tweet describes a tweet (post) that was created by a user. It contains the id of the tweet, its title, text body, date of creation, and id of the user to whom it belongs. User and Tweet are connected with a “has many” relationship. Tweet can return the user it belongs to.
+Model Tweet describes a tweet (post) that was created by a user. It contains the id of the tweet, its title, text body, date of creation, and id of the user to whom it belongs. User and Tweet are connected with a “has many” relationship. Tweet can return the user it belongs to and return likes and dislikes it has. Tweet implements Likable trait.
 
-Here is a diagram, describing models:
+Model Like describes a like/dislike on certain Tweet done by a certain User. It contains its id and a boolean, which describes if it's a like or dislike, and ids of the tweet and user it belongs to. Tweet and User have many Likes. Like can return the User and Tweet it belongs to.
 
-<img src="Object_Diagram.png">
+Here is a class diagram describing models:
+
+<img src="Model_Object_Diagram.png">
 
 Models implement Laravel’s Eloquent ORM, which is a simple and beautiful way of implementing ActiveRecord for working with databases. Both models have database tables (users_table and tweets_table), which are created and changed through migration files, which is an easier way of initial database management for major changes, provided by the framework. The type of database management system for this project will be MySQL.
 
