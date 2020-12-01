@@ -19,7 +19,7 @@ Architecture of the software is based on Laravel, PHP-based framework for creati
 
 Here is the top-level system design:
 
-...
+<img src="UML.png">
 
 
 ## Data Modeling
@@ -30,7 +30,7 @@ Model Tweet describes a tweet (post) that was created by a user. It contains the
 
 Here is a diagram, describing models:
 
-...
+<img src="Object_Diagram.png">
 
 Models implement Laravel’s Eloquent ORM, which is a simple and beautiful way of implementing ActiveRecord for working with databases. Both models have database tables (users_table and tweets_table), which are created and changed through migration files, which is an easier way of initial database management for major changes, provided by the framework. The type of database management system for this project will be MySQL.
 
