@@ -13,12 +13,13 @@
     </a>
 
     <div class="">
-        <h5 class="font-bold mb-4">
+        <h5 class="font-bold mb-2">
             <a href="{{ route('profile', $tweet->user) }}">
                 {{ $tweet->user->name }}
             </a>
         </h5>
-        <p class="text-sm">{{ $tweet->body }}</p>
+        <p class="text-sm mb-1">{{ $tweet->body }}</p>
+        <x-like-buttons :tweet="$tweet"/>
     </div>
 
 </div>

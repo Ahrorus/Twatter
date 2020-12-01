@@ -5,11 +5,12 @@
             name="body"
             class="w-full"
             placeholder="Nobody cares about your opinion here."
+            required
         ></textarea>
 
         <hr class="my-4">
 
-        <footer class="flex justify-between">
+        <footer class="flex justify-between items-center">
             <img
                 src="{{ auth()->user()->avatar }}"
                 alt=""
@@ -19,7 +20,7 @@
             >
             <button
                 type="submit"
-                class="bg-blue-500 rounded-lg shadow py-2 px-10 text-white"
+                class="bg-blue-500 rounded-lg shadow py-3 px-10 text-sm text-white hover:bg-blue-600"
                 >Twat
             </button>
         </footer>

@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Tweet extends Model
 {
 
+    use Likable;
     use HasFactory;
     protected $guarded = [];
 

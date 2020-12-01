@@ -24,14 +24,20 @@ class User extends Authenticatable
     ];
 
     public function getAvatarAttribute($value) {
-        return asset($value);
+        return asset($value ?: '/images/default-avatar.jpg');
+    }
+
+    public function setPasswordAttribute($value) {
+        $this->attributes['password'] = bcrypt($value);
     }
 
     public function timeline() {
         $friends = $this->follows()->pluck('id');
         return Tweet::whereIn('user_id', $friends)
             ->orWhere('user_id', $this->id)
-            ->latest()->get();
+            ->withLikes()
+            ->latest()
+            ->paginate(10);
     }
 
     public function tweets() {

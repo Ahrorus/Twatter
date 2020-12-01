@@ -8,7 +8,7 @@
             >
 
             <img
-                src="{{ current_user()->avatar }}"
+                src="{{ $user->avatar }}"
                 alt=""
                 class="rounded-full mr-2 absolute bottom-0 transform -translate-x-1/2 translate-y-1/2"
                 width="150"
@@ -17,7 +17,7 @@
         </div>
 
         <div class="flex justify-between items-center mb-8">
-            <div>
+            <div style="max-width: 270px">
                 <h2 class="font-bold text-2xl mb-0">{{ $user->name }}</h2>
                 <p class="text-sm">Joined {{ $user->created_at->diffForHumans() }}</p>
             </div>
@@ -36,6 +36,6 @@
     </header>
 
     @include('_timeline', [
-        'tweets' => $user->tweets
+        'tweets' => $tweets
     ])
 </x-app>
