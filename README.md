@@ -5,7 +5,7 @@
 In this web application, users can create new accounts or sign in to their existing accounts, manage personal profile, set avater, post tweets, view friends' tweets, explore other users, view and follow other users, like/dislike tweets. Below are the screen recording of the application:
 
 ## Screen Recorded Demo
-[![Watch the video](screenshot.jpg)](https://youtu.be/VhhvBNY_7kU)
+[![Watch the video](screenshot.jpg)](https://youtu.be/9TGxx6Bg7jY)
 
 
 ## Architectural Design
